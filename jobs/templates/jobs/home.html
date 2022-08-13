@@ -1,0 +1,75 @@
+
+
+
+
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Shranay Agarwal</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
+
+
+  </head>
+  <body>
+
+
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Shranay Agarwal</h1>
+        <p class="lead text-muted">Hi! I am Shranay, I am a fourth-year Computer Science major at University of California, Davis. I have an interest in software developement and have a passion for community service. Through my projects, I like to combine my passion and interest and help the community with the help of technology. </p>
+        <p>
+          <a href="mailto:shranay.agarwal@gmail.com" class="btn btn-primary my-2">Email Me</a>
+          <a href="https://www.linkedin.com/in/shranay-agarwal-89532b196/" class="btn btn-primary my-2">LinkedIn</a>
+          <a href="https://github.com/shraag" class="btn btn-primary my-2">Github</a>
+        </p>
+        <img src="{% static 'Shranay.jpeg'%}" height=300></img>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <section class="py-5 text-center container">
+      <h1 class="fw-light">Here are some of my projects!</h1>
+    </section>
+    <div class="container">
+
+      <div class="row">
+        {% for job in jobs.all %}
+        <div class="col-md-4">
+          <a href="{% url 'detail' job.id %}">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ job.image.url }}" width="150" height=300>
+            <div class="card-body">
+              <p class="card-text">{{ job.topic }}</p>
+            </div>
+          </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+
+
+
+<script src="{% static 'jquery-3.6.0.min.js' %}" ></script>
+<script src="{% static 'popper.min.js' %}" ></script>
+<script src="{% static 'bootstrap.min.js' %}" ></script>
+  </body>
+</html>
